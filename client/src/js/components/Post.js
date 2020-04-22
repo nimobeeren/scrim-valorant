@@ -102,6 +102,7 @@ class Post extends Component {
     const teamName = this.getTeamNameString();
     const author = this.getAuthor();
     const age = this.getAgeString();
+    const region = post.body.region;
     const level = this.getLevelString();
     const maps = this.getMapList();
 
@@ -109,6 +110,10 @@ class Post extends Component {
       <Card className="card post" title={teamName} note={author} subtitle={age}>
         <table className="post__fields">
           <tbody>
+            <tr>
+              <td>Region:</td>
+              <td>{region}</td>
+            </tr>
             <tr>
               <td>Level:</td>
               <td>{level}</td>
