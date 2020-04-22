@@ -12,6 +12,7 @@ class PostFormContainer extends Component {
     // Bind event handlers
     this.handleTeamNameChange = this.handleTeamNameChange.bind(this);
     this.handleRiotIdChange = this.handleRiotIdChange.bind(this);
+    this.handleRegionChange = this.handleRegionChange.bind(this);
     this.handleLevelChange = this.handleLevelChange.bind(this);
     this.handleMapsChange = this.handleMapsChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,6 +22,7 @@ class PostFormContainer extends Component {
       teamName: undefined,
       riotId: undefined,
       riotIdElement: undefined,
+      region: "NA West", // FIXME: No guarantee that this matches UI state
       level: 1, // FIXME: No guarantee that this matches UI state
       maps: [],
     };
@@ -50,6 +52,12 @@ class PostFormContainer extends Component {
     });
   }
 
+  handleRegionChange(e) {
+    this.setState({
+      region: e.target.value,
+    });
+  }
+
   handleLevelChange(e) {
     this.setState({
       level: e.target.value,
@@ -66,7 +74,7 @@ class PostFormContainer extends Component {
     e.preventDefault();
 
     const { currentUser, filters, createPost } = this.props;
-    const { teamName, riotId, level, maps } = this.state;
+    const { teamName, riotId, region, level, maps } = this.state;
     let fail = false;
 
     // Make sure the user is authenticated
@@ -94,6 +102,7 @@ class PostFormContainer extends Component {
         body: {
           teamName,
           riotId,
+          region,
           level,
           maps,
         },
@@ -111,6 +120,7 @@ class PostFormContainer extends Component {
         onSubmit={this.handleSubmit}
         onTeamNameChange={this.handleTeamNameChange}
         onRiotIdChange={this.handleRiotIdChange}
+        onRegionChange={this.handleRegionChange}
         onLevelChange={this.handleLevelChange}
         onMapsChange={this.handleMapsChange}
         onCancel={handleCancel}

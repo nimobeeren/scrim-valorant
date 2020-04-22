@@ -82,6 +82,7 @@ module.exports = {
   },
 
   createPost: function (post) {
+    console.log("db post", post);
     return new Post(post).save();
   },
 

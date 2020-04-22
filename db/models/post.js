@@ -9,6 +9,7 @@ const postSchema = new Schema(
     body: {
       teamName: String,
       riotId: String,
+      region: { type: String, required: true },
       level: { type: Number, required: true },
       maps: { type: [String], required: true },
     },

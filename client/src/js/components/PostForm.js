@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import RegionRadioButtons from "../containers/RegionRadioButtons";
 import LevelRadioButtons from "../containers/LevelRadioButtons";
 import MapCheckboxes from "../containers/MapCheckboxes";
 import Button from "./Button";
@@ -9,6 +10,7 @@ import "../../styles/PostForm.css";
 const PostForm = ({
   onTeamNameChange,
   onRiotIdChange,
+  onRegionChange,
   onLevelChange,
   onMapsChange,
   onSubmit,
@@ -33,6 +35,10 @@ const PostForm = ({
       />
     </fieldset>
     <fieldset>
+      <legend>Region</legend>
+      <RegionRadioButtons onChange={onRegionChange} />
+    </fieldset>
+    <fieldset>
       <legend>Level</legend>
       <LevelRadioButtons onChange={onLevelChange} />
     </fieldset>
@@ -53,6 +59,8 @@ const PostForm = ({
 
 PostForm.propTypes = {
   onTeamNameChange: PropTypes.func,
+  onRiotIdChange: PropTypes.func,
+  onRegionChange: PropTypes.func,
   onLevelChange: PropTypes.func,
   onMapsChange: PropTypes.func,
   onSubmit: PropTypes.func,
