@@ -10,6 +10,7 @@ class ReplyFormContainer extends Component {
 
     // Bind event handlers
     this.handleMapChange = this.handleMapChange.bind(this);
+    this.handleRiotIdChange = this.handleRiotIdChange.bind(this);
     this.handleMessageChange = this.handleMessageChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
@@ -18,6 +19,7 @@ class ReplyFormContainer extends Component {
     const defaultMap = this.props.activePost.body.maps[0]; // FIXME: No guarantee that this matches UI state
     this.state = {
       map: defaultMap,
+      riotId: "",
       message: null,
     };
   }
@@ -25,6 +27,12 @@ class ReplyFormContainer extends Component {
   handleMapChange(e) {
     this.setState({
       map: e.target.value,
+    });
+  }
+
+  handleRiotIdChange(e) {
+    this.setState({
+      riotId: e.target.value,
     });
   }
 
@@ -36,14 +44,14 @@ class ReplyFormContainer extends Component {
 
   handleSubmit(e) {
     const { activePost, currentUser, filters, sendReply } = this.props;
-    const { map, message } = this.state;
+    const { map, riotId, message } = this.state;
 
     sendReply(
       activePost._id,
       {
         author: currentUser.id,
         type: "request",
-        body: { map, message },
+        body: { map, riotId, message },
       },
       currentUser,
       filters
@@ -83,6 +91,7 @@ class ReplyFormContainer extends Component {
       <ReplyForm
         post={activePost}
         onMapChange={this.handleMapChange}
+        onRiotIdChange={this.handleRiotIdChange}
         onMessageChange={this.handleMessageChange}
         onSubmit={this.handleSubmit}
         onCancel={this.handleCancel}

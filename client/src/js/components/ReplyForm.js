@@ -9,6 +9,7 @@ import "../../styles/ReplyForm.css";
 const ReplyForm = ({
   post,
   onMapChange,
+  onRiotIdChange,
   onMessageChange,
   onSubmit,
   onCancel,
@@ -21,6 +22,14 @@ const ReplyForm = ({
         onChange={onMapChange}
         autoFocus
         required
+      />
+
+      <h4>Enter your Riot ID</h4>
+      <input
+        type="text"
+        required
+        placeholder="Riot ID#Tagline"
+        onChange={onRiotIdChange}
       />
 
       <h4>Add a message (optional)</h4>

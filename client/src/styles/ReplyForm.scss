@@ -4,11 +4,19 @@
   margin: 5px 0;
 }
 
+.post-reply-form h4 {
+  margin-top: 12px;
+}
+
 .post-reply-form select {
-  width: 100px;
-  margin: 10px 0;
+  width: 120px;
+  margin-top: 4px;
   font-family: $font-stack;
   font-size: 18px;
+}
+
+.post-reply-form input {
+  margin-top: 4px;
 }
 
 .post-reply-form textarea {
@@ -16,6 +24,7 @@
   width: 99%;
   height: 100px;
   margin: 10px 0 15px;
+  padding: 2px 4px;
   font-family: $font-stack;
   resize: none;
 }
