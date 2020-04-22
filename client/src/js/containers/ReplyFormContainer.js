@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { cancelReplyDraft, sendReply } from "../actions/PostReplyActions";
+import { riotIdErrorHandler } from "../../util";
 import ReplyForm from "../components/ReplyForm";
 
 class ReplyFormContainer extends Component {
@@ -22,6 +23,18 @@ class ReplyFormContainer extends Component {
       riotId: "",
       message: null,
     };
+  }
+
+  componentDidMount() {
+    const riotIdElement = document.querySelector("#riot-id");
+    this.setState({ riotIdElement });
+    riotIdElement.addEventListener("input", riotIdErrorHandler);
+  }
+
+  componentWillUnmount() {
+    if (this.state.riotIdElement) {
+      this.state.riotIdElement.removeEventListener("input", riotIdErrorHandler);
+    }
   }
 
   handleMapChange(e) {

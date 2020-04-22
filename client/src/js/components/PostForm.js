@@ -25,8 +25,10 @@ const PostForm = ({
       />
       <input
         type="text"
+        id="riot-id"
         placeholder="Riot ID#Tagline"
         required
+        pattern=".+#.+"
         onChange={onRiotIdChange}
       />
     </fieldset>

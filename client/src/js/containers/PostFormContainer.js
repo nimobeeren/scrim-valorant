@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { cancelPostDraft, createPost } from "../actions/CreatePostActions";
+import { riotIdErrorHandler } from "../../util";
 import PostForm from "../components/PostForm";
 
 class PostFormContainer extends Component {
@@ -19,9 +20,22 @@ class PostFormContainer extends Component {
     this.state = {
       teamName: undefined,
       riotId: undefined,
+      riotIdElement: undefined,
       level: 1, // FIXME: No guarantee that this matches UI state
       maps: [],
     };
+  }
+
+  componentDidMount() {
+    const riotIdElement = document.querySelector("#riot-id");
+    this.setState({ riotIdElement });
+    riotIdElement.addEventListener("input", riotIdErrorHandler);
+  }
+
+  componentWillUnmount() {
+    if (this.state.riotIdElement) {
+      this.state.riotIdElement.removeEventListener("input", riotIdErrorHandler);
+    }
   }
 
   handleTeamNameChange(e) {

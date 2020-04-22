@@ -1,2 +1,1 @@
-- validate RiotID: ensure tagline is included
 - add region filter

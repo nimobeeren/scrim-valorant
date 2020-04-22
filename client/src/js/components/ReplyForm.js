@@ -24,11 +24,13 @@ const ReplyForm = ({
         required
       />
 
-      <h4>Enter your Riot ID</h4>
+      <h4>Enter your Riot ID (with tagline)</h4>
       <input
         type="text"
+        id="riot-id"
         required
         placeholder="Riot ID#Tagline"
+        pattern=".+#.+"
         onChange={onRiotIdChange}
       />
 
