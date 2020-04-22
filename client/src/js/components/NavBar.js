@@ -8,7 +8,7 @@ const NavBar = () => (
   <nav>
     <div className="nav__content">
       <div className="nav__group group--title">
-        <h1>CSGO Scrim Finder</h1>
+        <h1>VALORANT Scrim</h1>
         <WelcomeMessageContainer />
       </div>
       <div className="nav__group group--buttons">
