@@ -4,8 +4,7 @@ import Button from "./Button";
 import "../../styles/Reply.css";
 
 const Reply = ({ reply, isPostAuthor, onAccept, onDecline }) => {
-  const { map, message } = reply.body || {};
-  const authorName = (reply.author && reply.author.name) || "Anonymous";
+  const { map, riotId, message } = reply.body || {};
 
   switch (reply.type) {
     // Request to play a map
@@ -19,10 +18,10 @@ const Reply = ({ reply, isPostAuthor, onAccept, onDecline }) => {
           key="text"
           className={"reply__text" + (declined ? " reply--declined" : "")}
         >
-          <span className="reply__author">{authorName}</span>
+          <span className="reply__author">{riotId}</span>
           <span>&nbsp;wants to play&nbsp;</span>
           <span className="map">{map}</span>
-          {message ? ": " : ""}
+          <span>{message ? ": " : ""}</span>
           <i>{message}</i>
         </div>,
       ];
@@ -73,8 +72,11 @@ const Reply = ({ reply, isPostAuthor, onAccept, onDecline }) => {
       return (
         <div key={reply._id} className="replies__reply">
           <div className="reply__text">
-            <span className="reply__author">{authorName}</span>&nbsp; has
-            accepted your request.
+            <span className="reply__author">{riotId}</span>
+            <span>
+              &nbsp;has accepted your request. You can now add eachother in-game
+              and create a custom game.
+            </span>
           </div>
         </div>
       );
@@ -84,8 +86,8 @@ const Reply = ({ reply, isPostAuthor, onAccept, onDecline }) => {
       return (
         <div key={reply._id} className="replies__reply">
           <div className="reply__text">
-            <span className="reply__author">{authorName}</span>&nbsp; has
-            declined your request.
+            <span className="reply__author">{riotId}</span>
+            <span>&nbsp;has declined your request.</span>
           </div>
         </div>
       );
@@ -95,8 +97,8 @@ const Reply = ({ reply, isPostAuthor, onAccept, onDecline }) => {
       return (
         <div key={reply._id} className="replies__reply">
           <div className="reply__text">
-            <span className="reply__author">{authorName}:</span>&nbsp;
-            {message}
+            <span className="reply__author">{riotId}:</span>&nbsp;
+            <span>{message}</span>
           </div>
         </div>
       );
