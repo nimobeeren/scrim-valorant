@@ -1,5 +1,5 @@
 {
-  "name": "scrim-finder-server",
+  "name": "valorant-scrim-server",
   "version": "1.0.0",
   "description": "A web app to find, organize and schedule competitive Valorant matches",
   "main": "server.js",
@@ -23,11 +23,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nimobeeren/scrim-finder.git"
+    "url": "git+https://github.com/nimobeeren/valorant-scrim.git"
   },
   "author": "Nimo Beeren",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nimobeeren/scrim-finder/issues"
+    "url": "https://github.com/nimobeeren/valorant-scrim/issues"
   }
 }

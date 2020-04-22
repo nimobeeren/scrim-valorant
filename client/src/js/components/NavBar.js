@@ -15,7 +15,7 @@ const NavBar = () => (
         <Button
           className="btn btn--nav btn--about btn--secondary"
           label=""
-          href="https://github.com/nimobeeren/scrim-finder/"
+          href="https://github.com/nimobeeren/valorant-scrim/"
         />
         <LoginButton />
       </div>
