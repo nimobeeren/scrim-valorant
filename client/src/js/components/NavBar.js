@@ -1,7 +1,6 @@
 import React from "react";
 import WelcomeMessageContainer from "../containers/WelcomeMessageContainer";
 import Button from "./Button";
-import LoginButton from "../containers/LoginButton";
 import "./../../styles/NavBar.css";
 
 const NavBar = () => (
@@ -17,7 +16,6 @@ const NavBar = () => (
           label=""
           href="https://github.com/nimobeeren/valorant-scrim/"
         />
-        <LoginButton />
       </div>
     </div>
   </nav>
