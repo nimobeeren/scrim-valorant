@@ -13,7 +13,6 @@ class Post extends Component {
     this.getAgeString = this.getAgeString.bind(this);
     this.getLevelString = this.getLevelString.bind(this);
     this.getMapList = this.getMapList.bind(this);
-    this.getServerPrefString = this.getServerPrefString.bind(this);
   }
 
   getTeamNameString() {
@@ -102,29 +101,13 @@ class Post extends Component {
     return post.body.maps;
   }
 
-  getServerPrefString() {
-    const { post } = this.props;
-
-    if (post.body) {
-      const server = post.body.server;
-
-      if (typeof server !== "boolean") {
-        return "On/Off";
-      } else if (server) {
-        return "On";
-      }
-    }
-    return "Off";
-  }
-
   render() {
-    const { post } = this.props,
-      teamName = this.getTeamNameString(),
-      author = this.getAuthor(),
-      age = this.getAgeString(),
-      level = this.getLevelString(),
-      maps = this.getMapList(),
-      server = this.getServerPrefString();
+    const { post } = this.props;
+    const teamName = this.getTeamNameString();
+    const author = this.getAuthor();
+    const age = this.getAgeString();
+    const level = this.getLevelString();
+    const maps = this.getMapList();
 
     return (
       <Card className="card post" title={teamName} note={author} subtitle={age}>
@@ -139,10 +122,6 @@ class Post extends Component {
               <td>
                 <MapPool maps={maps} />
               </td>
-            </tr>
-            <tr>
-              <td>Server:</td>
-              <td>{server}</td>
             </tr>
           </tbody>
         </table>

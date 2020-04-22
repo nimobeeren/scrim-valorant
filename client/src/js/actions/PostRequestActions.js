@@ -39,10 +39,6 @@ export function acceptRequest(request, post, user, filters) {
       author: post.author._id,
       recipient: request.author._id,
       type: "accept",
-      body: {
-        ip: post.body.ip,
-        password: post.body.password,
-      },
     };
     const createResponse = await fetch("/api/posts/" + post._id, {
       method: "POST",

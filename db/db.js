@@ -62,17 +62,6 @@ module.exports = {
       }
     }
 
-    // Include posts that match the server preference or do not have a
-    // server preference set
-    if (filters && typeof filters.server === "boolean") {
-      query["body.server"] = {
-        $not: {
-          $exists: true,
-          $nin: [filters.server, null],
-        },
-      };
-    }
-
     // Include posts that are newer than the specified age (in minutes)
     if (filters && typeof filters.maxAge === "number") {
       const oldestDate = Date.now() - filters.maxAge * 60 * 1000;

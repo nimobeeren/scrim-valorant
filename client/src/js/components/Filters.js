@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import LevelCheckboxes from "../containers/LevelCheckboxes";
 import MapCheckboxes from "../containers/MapCheckboxes";
-import ServerRadioButtons from "../containers/ServerRadioButtons";
 import AgeRadioButtons from "../containers/AgeRadioButtons";
 import ChevronToggle from "./ChevronToggle";
 import Button from "./Button";
@@ -14,7 +13,6 @@ const Filters = (props) => {
     onExpandedToggle,
     onLevelChange,
     onMapChange,
-    onServerChange,
     onAgeChange,
   } = props;
 
@@ -46,10 +44,6 @@ const Filters = (props) => {
             <MapCheckboxes onChange={onMapChange} />
           </fieldset>
           <fieldset>
-            <legend>Server</legend>
-            <ServerRadioButtons onChange={onServerChange} />
-          </fieldset>
-          <fieldset>
             <legend>Post age</legend>
             <AgeRadioButtons onChange={onAgeChange} />
           </fieldset>
@@ -64,7 +58,6 @@ Filters.propTypes = {
   onExpandedToggle: PropTypes.func,
   onLevelChange: PropTypes.func,
   onMapChange: PropTypes.func,
-  onServerChange: PropTypes.func,
   onAgeChange: PropTypes.func,
 };
 

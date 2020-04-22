@@ -1,23 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Button from "./Button";
-import ServerDetails from "./ServerDetails";
 import "../../styles/Reply.css";
 
-function getPersonalizedRequest(server, isPostAuthor) {
-  if (server) {
-    return "on their server";
-  } else {
-    if (isPostAuthor) {
-      return "on your server";
-    } else {
-      return "on poster's server";
-    }
-  }
-}
-
 const Reply = ({ reply, isPostAuthor, onAccept, onDecline }) => {
-  const { map, message, ip, password } = reply.body || {};
+  const { map, message } = reply.body || {};
   const authorName = (reply.author && reply.author.name) || "Anonymous";
 
   switch (reply.type) {
@@ -32,17 +19,11 @@ const Reply = ({ reply, isPostAuthor, onAccept, onDecline }) => {
           key="text"
           className={"reply__text" + (declined ? " reply--declined" : "")}
         >
-          <span className="reply__author">{authorName}</span>&nbsp; wants to
-          play <span className="map">{map}</span>
-          {getPersonalizedRequest(ip, isPostAuthor)}
+          <span className="reply__author">{authorName}</span>
+          <span>&nbsp;wants to play&nbsp;</span>
+          <span className="map">{map}</span>
           {message ? ": " : ""}
           <i>{message}</i>
-          {
-            // Show server details when applicable
-            accepted && isPostAuthor && ip && (
-              <ServerDetails key="server" ip={ip} password={password} />
-            )
-          }
         </div>,
       ];
 
@@ -94,7 +75,6 @@ const Reply = ({ reply, isPostAuthor, onAccept, onDecline }) => {
           <div className="reply__text">
             <span className="reply__author">{authorName}</span>&nbsp; has
             accepted your request.
-            {ip && <ServerDetails ip={ip} password={password} />}
           </div>
         </div>
       );

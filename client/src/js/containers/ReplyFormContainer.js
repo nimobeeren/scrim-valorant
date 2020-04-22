@@ -9,9 +9,6 @@ class ReplyFormContainer extends Component {
     super(props);
 
     // Bind event handlers
-    this.handleServerChange = this.handleServerChange.bind(this);
-    this.handleIPChange = this.handleIPChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleMapChange = this.handleMapChange.bind(this);
     this.handleMessageChange = this.handleMessageChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,30 +17,9 @@ class ReplyFormContainer extends Component {
     // Set default state
     const defaultMap = this.props.activePost.body.maps[0]; // FIXME: No guarantee that this matches UI state
     this.state = {
-      server: false,
-      ip: null,
-      password: null,
       map: defaultMap,
       message: null,
     };
-  }
-
-  handleServerChange(e, newServer) {
-    this.setState({
-      server: newServer,
-    });
-  }
-
-  handleIPChange(e) {
-    this.setState({
-      ip: e.target.value,
-    });
-  }
-
-  handlePasswordChange(e) {
-    this.setState({
-      password: e.target.value,
-    });
   }
 
   handleMapChange(e) {
@@ -60,14 +36,14 @@ class ReplyFormContainer extends Component {
 
   handleSubmit(e) {
     const { activePost, currentUser, filters, sendReply } = this.props;
-    const { ip, password, map, message } = this.state;
+    const { map, message } = this.state;
 
     sendReply(
       activePost._id,
       {
         author: currentUser.id,
         type: "request",
-        body: { map, message, ip, password },
+        body: { map, message },
       },
       currentUser,
       filters
@@ -91,7 +67,6 @@ class ReplyFormContainer extends Component {
 
   render() {
     const { activePost, allMaps } = this.props;
-    const { server } = this.state;
     let { teamName, maps } = activePost.body;
 
     // Fill in anonymous when team name is empty
@@ -107,10 +82,6 @@ class ReplyFormContainer extends Component {
     return (
       <ReplyForm
         post={activePost}
-        shouldHaveIPPW={server || server === null}
-        onServerChange={this.handleServerChange}
-        onIPChange={this.handleIPChange}
-        onPasswordChange={this.handlePasswordChange}
         onMapChange={this.handleMapChange}
         onMessageChange={this.handleMessageChange}
         onSubmit={this.handleSubmit}
