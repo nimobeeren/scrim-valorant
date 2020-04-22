@@ -1,0 +1,1 @@
+- validate RiotID: ensure tagline is included

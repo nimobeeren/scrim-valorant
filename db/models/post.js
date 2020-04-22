@@ -8,6 +8,7 @@ const postSchema = new Schema(
     author: { type: Schema.Types.ObjectId, ref: "User" },
     body: {
       teamName: String,
+      riotId: String,
       level: { type: Number, required: true },
       maps: { type: [String], required: true },
     },

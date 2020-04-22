@@ -10,13 +10,15 @@ class PostFormContainer extends Component {
 
     // Bind event handlers
     this.handleTeamNameChange = this.handleTeamNameChange.bind(this);
+    this.handleRiotIdChange = this.handleRiotIdChange.bind(this);
     this.handleLevelChange = this.handleLevelChange.bind(this);
     this.handleMapsChange = this.handleMapsChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
     // Set default state
     this.state = {
-      teamName: "",
+      teamName: undefined,
+      riotId: undefined,
       level: 1, // FIXME: No guarantee that this matches UI state
       maps: [],
     };
@@ -25,6 +27,12 @@ class PostFormContainer extends Component {
   handleTeamNameChange(e) {
     this.setState({
       teamName: e.target.value,
+    });
+  }
+
+  handleRiotIdChange(e) {
+    this.setState({
+      riotId: e.target.value,
     });
   }
 
@@ -44,7 +52,7 @@ class PostFormContainer extends Component {
     e.preventDefault();
 
     const { currentUser, filters, createPost } = this.props;
-    const { teamName, level, maps } = this.state;
+    const { teamName, riotId, level, maps } = this.state;
     let fail = false;
 
     // Make sure the user is authenticated
@@ -71,6 +79,7 @@ class PostFormContainer extends Component {
         author: currentUser.id,
         body: {
           teamName,
+          riotId,
           level,
           maps,
         },
@@ -87,6 +96,7 @@ class PostFormContainer extends Component {
       <PostForm
         onSubmit={this.handleSubmit}
         onTeamNameChange={this.handleTeamNameChange}
+        onRiotIdChange={this.handleRiotIdChange}
         onLevelChange={this.handleLevelChange}
         onMapsChange={this.handleMapsChange}
         onCancel={handleCancel}

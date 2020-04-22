@@ -8,6 +8,7 @@ import "../../styles/PostForm.css";
 
 const PostForm = ({
   onTeamNameChange,
+  onRiotIdChange,
   onLevelChange,
   onMapsChange,
   onSubmit,
@@ -15,12 +16,18 @@ const PostForm = ({
 }) => (
   <form className="post-form" onSubmit={onSubmit}>
     <fieldset>
-      <legend>Team Name</legend>
+      <legend>Team info</legend>
       <input
         type="text"
-        placeholder="Anonymous"
+        placeholder="Team name (optional)"
         autoFocus
         onChange={onTeamNameChange}
+      />
+      <input
+        type="text"
+        placeholder="Riot ID#Tagline"
+        required
+        onChange={onRiotIdChange}
       />
     </fieldset>
     <fieldset>
