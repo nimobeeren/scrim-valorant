@@ -13,12 +13,13 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
     "npm-run-all": "^4.1.2"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
-    "start-js": "react-scripts start",
+    "start-js": "cross-env BROWSER=none react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
