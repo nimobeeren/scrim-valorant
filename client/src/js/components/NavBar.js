@@ -1,5 +1,5 @@
 import React from "react";
-import WelcomeMessageContainer from "../containers/WelcomeMessageContainer";
+import WelcomeMessage from "../components/WelcomeMessage";
 import Button from "./Button";
 import "./../../styles/NavBar.css";
 
@@ -8,7 +8,7 @@ const NavBar = () => (
     <div className="nav__content">
       <div className="nav__group group--title">
         <h1>VALORANT Scrim</h1>
-        <WelcomeMessageContainer />
+        <WelcomeMessage />
       </div>
       <div className="nav__group group--buttons">
         <Button
