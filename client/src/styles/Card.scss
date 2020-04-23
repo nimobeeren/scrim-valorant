@@ -15,8 +15,7 @@
 }
 
 .card--secondary {
-  background: transparent;
-  border: 2px solid $white;
+  background: rgba($secondary-color, 0.7);
   color: $white;
 }
 

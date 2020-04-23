@@ -18,7 +18,7 @@ const PostForm = ({
 }) => (
   <form className="post-form" onSubmit={onSubmit}>
     <fieldset>
-      <legend>Team info</legend>
+      <h4>Team info</h4>
       <input
         type="text"
         placeholder="Team name (optional)"
@@ -35,15 +35,15 @@ const PostForm = ({
       />
     </fieldset>
     <fieldset>
-      <legend>Region</legend>
+      <h4>Region</h4>
       <RegionRadioButtons onChange={onRegionChange} />
     </fieldset>
     <fieldset>
-      <legend>Level</legend>
+      <h4>Level</h4>
       <LevelRadioButtons onChange={onLevelChange} />
     </fieldset>
     <fieldset id="new-post-maps">
-      <legend>Maps</legend>
+      <h4>Maps</h4>
       <MapCheckboxes onChange={onMapsChange} />
     </fieldset>
     <div className="post-form__controls">
@@ -51,7 +51,11 @@ const PostForm = ({
         <SubmitButton className="btn" label="Create" />
       </div>
       <div className="post-form__btn-wrapper">
-        <Button className="btn" label="Cancel" onClick={onCancel} />
+        <Button
+          className="btn btn--secondary"
+          label="Cancel"
+          onClick={onCancel}
+        />
       </div>
     </div>
   </form>

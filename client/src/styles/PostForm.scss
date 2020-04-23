@@ -3,18 +3,24 @@
 .post-form {
   display: flex;
   flex-flow: column nowrap;
+  margin-top: 16px;
 }
 
 .post-form fieldset {
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
-  margin: 10px 0;
-  border-radius: $br-medium;
-  border: $medium-border;
+  border: none;
   & input:not(:last-child) {
     margin-bottom: 8px;
   }
+}
+
+.post-form h4 {
+  margin: 0;
+  margin-bottom: 8px;
+  color: rgba($white, 0.95);
+  text-transform: uppercase;
 }
 
 .post-form input[type="text"] {
@@ -24,7 +30,7 @@
 }
 
 .post-form__controls {
-  margin: 0 auto;
+  margin: 16px auto 0 auto;
   text-align: center;
 }
 
