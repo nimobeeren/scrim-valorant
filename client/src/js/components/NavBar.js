@@ -1,6 +1,7 @@
 import React from "react";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import TwitterIcon from "@material-ui/icons/Twitter";
 import WelcomeMessage from "../components/WelcomeMessage";
-import Button from "./Button";
 import "./../../styles/NavBar.css";
 
 const NavBar = () => (
@@ -11,11 +12,12 @@ const NavBar = () => (
         <WelcomeMessage />
       </div>
       <div className="nav__group group--buttons">
-        <Button
-          className="btn btn--nav btn--about btn--secondary"
-          label=""
-          href="https://github.com/nimobeeren/valorant-scrim/"
-        />
+        <a href="https://twitter.com/NimsterCSGO">
+          <TwitterIcon />
+        </a>
+        <a href="https://github.com/nimobeeren/valorant-scrim/">
+          <GitHubIcon />
+        </a>
       </div>
     </div>
   </nav>
