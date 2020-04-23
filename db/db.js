@@ -30,7 +30,6 @@ module.exports = {
     let query = {};
 
     // Include posts that are in one of the specified regions
-    console.log(filters);
     if (filters && filters.region) {
       if (Array.isArray(filters.region)) {
         // region can be given as an array...
@@ -98,7 +97,6 @@ module.exports = {
   },
 
   createPost: function (post) {
-    console.log("db post", post);
     return new Post(post).save();
   },
 
