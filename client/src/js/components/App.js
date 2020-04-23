@@ -17,6 +17,7 @@ const App = () => (
       <CreatePostContainer />
       <PostListContainer />
     </section>
+    <div className="background" />
   </div>
 );
 

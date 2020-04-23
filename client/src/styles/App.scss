@@ -8,11 +8,20 @@ body {
 }
 
 body {
+  min-width: 300px;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vw;
   background: linear-gradient(
     darken($primary-color, 10),
-    darken($accent-color, 10)
+    darken($accent-color, 10) 150%
   );
-  min-width: 300px;
 }
 
 @media (min-width: $bp-large) {
