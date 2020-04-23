@@ -1,21 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import RadioGroup from "../components/RadioGroup";
+import CheckboxGroup from "../components/CheckboxGroup";
 
-const RegionRadioButtons = ({ regions, onChange }) => {
+const RegionCheckboxes = ({ regions, onChange }) => {
   const items = regions.map((region) => {
     return {
       value: region,
       label: region,
     };
   });
-  return (
-    <RadioGroup items={items} defaultItem={"NA West"} onChange={onChange} />
-  );
+  return <CheckboxGroup items={items} onChange={onChange} />;
 };
 
-RegionRadioButtons.propTypes = {
+RegionCheckboxes.propTypes = {
   onChange: PropTypes.func,
 };
 
@@ -25,4 +23,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(RegionRadioButtons);
+export default connect(mapStateToProps)(RegionCheckboxes);

@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import RegionCheckboxes from "../containers/RegionCheckboxes";
 import LevelCheckboxes from "../containers/LevelCheckboxes";
 import MapCheckboxes from "../containers/MapCheckboxes";
 import AgeRadioButtons from "../containers/AgeRadioButtons";
@@ -11,6 +12,7 @@ const Filters = (props) => {
   const {
     expanded,
     onExpandedToggle,
+    onRegionChange,
     onLevelChange,
     onMapChange,
     onAgeChange,
@@ -36,6 +38,10 @@ const Filters = (props) => {
           className={"filters__fields " + (expanded ? "fields--expanded" : "")}
         >
           <fieldset>
+            <legend>Region</legend>
+            <RegionCheckboxes onChange={onRegionChange} />
+          </fieldset>
+          <fieldset>
             <legend>Level</legend>
             <LevelCheckboxes onChange={onLevelChange} />
           </fieldset>
@@ -56,6 +62,7 @@ const Filters = (props) => {
 Filters.propTypes = {
   expanded: PropTypes.bool,
   onExpandedToggle: PropTypes.func,
+  onRegionChange: PropTypes.func,
   onLevelChange: PropTypes.func,
   onMapChange: PropTypes.func,
   onAgeChange: PropTypes.func,

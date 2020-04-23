@@ -31,6 +31,8 @@ export function fetchPosts(filters = null) {
     const query = encodeURIComponent(JSON.stringify(filters));
     const response = await fetch("/api/posts?filters=" + query);
 
+    console.log(filters);
+
     if (response.ok) {
       const json = await response.json();
       dispatch(receivePosts(filters, json));

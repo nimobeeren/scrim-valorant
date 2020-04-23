@@ -12,6 +12,7 @@ class FiltersContainer extends Component {
     this.state = {
       expanded: true,
       filters: {
+        region: [],
         level: [],
         maps: [],
         maxAge: "any",
@@ -20,6 +21,7 @@ class FiltersContainer extends Component {
 
     // Bind event handlers
     this.handleExpandedToggle = this.handleExpandedToggle.bind(this);
+    this.handleRegionChange = this.handleRegionChange.bind(this);
     this.handleLevelChange = this.handleLevelChange.bind(this);
     this.handleMapChange = this.handleMapChange.bind(this);
     this.handleAgeChange = this.handleAgeChange.bind(this);
@@ -34,6 +36,13 @@ class FiltersContainer extends Component {
   handleFilterChange(e, state) {
     // Call action creator
     this.props.handleChange(state.filters);
+  }
+
+  handleRegionChange(e, state) {
+    let newState = this.state;
+    newState.filters.region = state.checkedItems;
+    this.setState(newState);
+    this.handleFilterChange(e, newState);
   }
 
   handleLevelChange(e, state) {
@@ -86,6 +95,7 @@ class FiltersContainer extends Component {
       <Filters
         expanded={this.state.expanded}
         onExpandedToggle={this.handleExpandedToggle}
+        onRegionChange={this.handleRegionChange}
         onLevelChange={this.handleLevelChange}
         onMapChange={this.handleMapChange}
         onAgeChange={this.handleAgeChange}
