@@ -39,22 +39,29 @@
 }
 
 .filters fieldset {
-  background: $white;
-  color: $secondary-color;
-  border-radius: $br-small;
-  border: $medium-border;
-  border-color: rgba($white, 0.3);
   margin-top: 20px;
   padding: 15px;
   padding-top: 10px;
+  background: $white;
+  color: $secondary-color;
+  box-shadow: $bs-small;
+  border-radius: $br-medium;
+  border: $medium-border;
+  border-color: rgba($white, 0.3);
 }
 
 .filters h4 {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
   margin: 0;
   margin-bottom: 8px;
   color: rgba($secondary-color, 0.7);
   font-weight: 600;
   text-transform: uppercase;
+  & > *:first-child {
+    margin-right: 4px;
+  }
 }
 
 .filters label {

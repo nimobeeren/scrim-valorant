@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import RegionIcon from "@material-ui/icons/Public";
+import LevelIcon from "@material-ui/icons/Star";
+import MapsIcon from "@material-ui/icons/Map";
 import Card from "./Card";
 import MapPool from "../containers/MapPool";
 import PostLower from "./PostLower";
@@ -111,15 +114,30 @@ class Post extends Component {
         <table className="post__fields">
           <tbody>
             <tr>
-              <td>Region:</td>
+              <td>
+                <div>
+                  <RegionIcon />
+                  Region
+                </div>
+              </td>
               <td>{region}</td>
             </tr>
             <tr>
-              <td>Level:</td>
+              <td>
+                <div>
+                  <LevelIcon />
+                  Level
+                </div>
+              </td>
               <td>{level}</td>
             </tr>
             <tr className="maps">
-              <td>Maps:</td>
+              <td>
+                <div>
+                  <MapsIcon />
+                  Maps
+                </div>
+              </td>
               <td>
                 <MapPool maps={maps} />
               </td>

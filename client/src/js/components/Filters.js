@@ -1,5 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import RegionIcon from "@material-ui/icons/Public";
+import LevelIcon from "@material-ui/icons/Star";
+import MapsIcon from "@material-ui/icons/Map";
+import AgeIcon from "@material-ui/icons/Schedule";
 import RegionCheckboxes from "../containers/RegionCheckboxes";
 import LevelCheckboxes from "../containers/LevelCheckboxes";
 import MapCheckboxes from "../containers/MapCheckboxes";
@@ -38,19 +42,31 @@ const Filters = (props) => {
           className={"filters__fields " + (expanded ? "fields--expanded" : "")}
         >
           <fieldset>
-            <h4>Region</h4>
+            <h4>
+              <RegionIcon />
+              Region
+            </h4>
             <RegionCheckboxes onChange={onRegionChange} />
           </fieldset>
           <fieldset>
-            <h4>Level</h4>
+            <h4>
+              <LevelIcon />
+              Level
+            </h4>
             <LevelCheckboxes onChange={onLevelChange} />
           </fieldset>
           <fieldset>
-            <h4>Maps</h4>
+            <h4>
+              <MapsIcon />
+              Maps
+            </h4>
             <MapCheckboxes onChange={onMapChange} />
           </fieldset>
           <fieldset>
-            <h4>Post age</h4>
+            <h4>
+              <AgeIcon />
+              Post age
+            </h4>
             <AgeRadioButtons onChange={onAgeChange} />
           </fieldset>
         </div>

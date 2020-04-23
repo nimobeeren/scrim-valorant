@@ -1,5 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+import RegionIcon from "@material-ui/icons/Public";
+import LevelIcon from "@material-ui/icons/Star";
+import MapsIcon from "@material-ui/icons/Map";
 import RegionRadioButtons from "../containers/RegionRadioButtons";
 import LevelRadioButtons from "../containers/LevelRadioButtons";
 import MapCheckboxes from "../containers/MapCheckboxes";
@@ -35,15 +38,24 @@ const PostForm = ({
       />
     </fieldset>
     <fieldset>
-      <h4>Region</h4>
+      <h4>
+        <RegionIcon />
+        Region
+      </h4>
       <RegionRadioButtons onChange={onRegionChange} />
     </fieldset>
     <fieldset>
-      <h4>Level</h4>
+      <h4>
+        <LevelIcon />
+        Level
+      </h4>
       <LevelRadioButtons onChange={onLevelChange} />
     </fieldset>
     <fieldset id="new-post-maps">
-      <h4>Maps</h4>
+      <h4>
+        <MapsIcon />
+        Maps
+      </h4>
       <MapCheckboxes onChange={onMapsChange} />
     </fieldset>
     <div className="post-form__controls">
