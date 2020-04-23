@@ -28,7 +28,7 @@ class Post extends Component {
   getAuthor() {
     const { post } = this.props;
     const name = post?.body?.riotId || "Anonymous";
-    return `By ${name}`;
+    return `by ${name}`;
   }
 
   getAgeString() {

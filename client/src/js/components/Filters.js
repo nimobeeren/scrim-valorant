@@ -38,19 +38,19 @@ const Filters = (props) => {
           className={"filters__fields " + (expanded ? "fields--expanded" : "")}
         >
           <fieldset>
-            <legend>Region</legend>
+            <h4>Region</h4>
             <RegionCheckboxes onChange={onRegionChange} />
           </fieldset>
           <fieldset>
-            <legend>Level</legend>
+            <h4>Level</h4>
             <LevelCheckboxes onChange={onLevelChange} />
           </fieldset>
           <fieldset>
-            <legend>Maps</legend>
+            <h4>Maps</h4>
             <MapCheckboxes onChange={onMapChange} />
           </fieldset>
           <fieldset>
-            <legend>Post age</legend>
+            <h4>Post age</h4>
             <AgeRadioButtons onChange={onAgeChange} />
           </fieldset>
         </div>

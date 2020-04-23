@@ -16,7 +16,7 @@ const ReplyList = ({
     // Give feedback when are no replies
     replyElements = (
       <div className="replies__reply">
-        <i>No replies found</i>
+        <i>No replies yet.</i>
       </div>
     );
   } else {

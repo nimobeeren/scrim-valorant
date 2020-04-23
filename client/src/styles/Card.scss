@@ -4,10 +4,12 @@
   box-sizing: border-box;
   width: $content-width;
   margin: 15px auto;
-  padding: 15px;
+  padding: 30px;
+  padding-top: 25px;
   background: $white;
-  border-radius: 3px;
-  color: black;
+  border-radius: $br-medium;
+  box-shadow: $bs-medium;
+  color: $secondary-color;
   overflow: hidden;
   text-overflow: ellipsis;
 }

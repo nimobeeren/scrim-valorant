@@ -6,11 +6,15 @@
 }
 
 .post__fields {
-  margin: 10px 0;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .post__fields td:first-child {
   padding-right: 10px;
+  color: rgba($secondary-color, 0.7);
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .post__fields tr {

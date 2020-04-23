@@ -2,8 +2,9 @@
 
 .filters {
   box-sizing: border-box;
-  padding: 10px 25px;
-  background: darken($primary-color, 5%);
+  padding: 15px 25px;
+  background: rgba($secondary-color, 0.8);
+  box-shadow: $bs-medium;
 }
 
 .filters__content {
@@ -38,8 +39,22 @@
 }
 
 .filters fieldset {
-  border-radius: 10px;
+  background: $white;
+  color: $secondary-color;
+  border-radius: $br-small;
   border: $medium-border;
+  border-color: rgba($white, 0.3);
+  margin-top: 20px;
+  padding: 15px;
+  padding-top: 10px;
+}
+
+.filters h4 {
+  margin: 0;
+  margin-bottom: 8px;
+  color: rgba($secondary-color, 0.7);
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .filters label {

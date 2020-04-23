@@ -3,7 +3,8 @@
 nav {
   width: 100%;
   height: $nav-height;
-  background: darken($primary-color, 10%);
+  background: $secondary-color;
+  box-shadow: $bs-medium;
   color: $white;
   z-index: 1;
 }

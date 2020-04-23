@@ -9,7 +9,7 @@ a {
   height: 40px;
   background: $accent-color;
   border: none;
-  border-radius: 3px;
+  border-radius: $br-small;
   font-size: 18px;
   text-align: center;
   font-family: $font-stack;
@@ -102,7 +102,7 @@ a {
   // Normal about button
   .btn--about {
     width: 100px;
-    border-radius: 3px;
+    border-radius: $br-small;
   }
 
   .btn--about::before {
