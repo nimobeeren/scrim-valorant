@@ -8,7 +8,7 @@ const WelcomeMessage = ({ user }) => {
   // }
   return (
     <div className="welcome-message">
-      <span>YOU'RE IN...</span> Now get good.
+      <span>YOU'RE IN...</span> Time to get good.
     </div>
   );
 };
