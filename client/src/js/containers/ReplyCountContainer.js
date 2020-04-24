@@ -6,7 +6,7 @@ import ReplyCount from "../components/ReplyCount";
 function getRealReplyCount(replies, currentUser) {
   return replies.reduce((count, reply) => {
     // TODO: Don't send this reply to the client at all
-    if (!reply.recipient || reply.recipient === currentUser.id) {
+    if (!reply.recipient || reply.recipient === currentUser?.id) {
       return count + 1;
     }
     return count;
