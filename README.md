@@ -16,9 +16,6 @@ To run the app, you'll need to create a configuration file named `config.json` i
   // Including username/pw
   "mongoServer": "URL for the MongoDB instance",
 
-  // Retrieved from https://steamcommunity.com/dev/apikey
-  "steamApiKey": "your key",
-
   "secret": "some secret phrase"
 }
 ```
