@@ -21,7 +21,7 @@
     "start": "npm-run-all -p server client",
     "server": "node bin/www",
     "client": "node start-client.js",
-    "build": "node build-client.js"
+    "heroku-postbuild": "cd client && yarn --frozen-lockfile && yarn build"
   },
   "repository": {
     "type": "git",
