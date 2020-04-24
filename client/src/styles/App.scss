@@ -11,6 +11,10 @@ body {
   min-width: 300px;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .background {
   position: fixed;
   top: 0;
