@@ -22,6 +22,10 @@ nav {
   align-items: center;
 }
 
+.nav__group > *:not(:last-child) {
+  margin-right: 8px;
+}
+
 .group--title {
   flex-grow: 1;
   justify-content: space-between;
@@ -42,7 +46,7 @@ nav h1 {
 
 @media (min-width: $bp-small) {
   .nav__group > *:not(:last-child) {
-    margin-right: 15px;
+    margin-right: 14px;
   }
 
   nav h1 {
