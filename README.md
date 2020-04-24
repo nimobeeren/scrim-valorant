@@ -1,6 +1,6 @@
 *Yes, it's old code. But it works, right?* :man_shrugging:
 
-# Scrim VALORANT
+# VALORANT Scrim Finder
 
 ## Description
 
