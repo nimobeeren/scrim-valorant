@@ -12,12 +12,13 @@
 
 .reply__text {
   display: inline-block;
-  margin: 4px;
+  margin-right: 16px;
 }
 
 .reply__author {
   color: $accent-color;
   font-weight: bold;
+  word-break: break-all;
 }
 
 .reply__controls {

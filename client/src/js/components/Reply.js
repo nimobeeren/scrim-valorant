@@ -19,9 +19,8 @@ const Reply = ({ reply, isPostAuthor, onAccept, onDecline }) => {
           className={"reply__text" + (declined ? " reply--declined" : "")}
         >
           <span className="reply__author">{riotId}</span>
-          <span>&nbsp;wants to play&nbsp;</span>
+          <span> wants to play </span>
           <span className="map">{map}</span>
-          <span>{message ? ": " : ""}</span>
           <i>{message}</i>
         </div>,
       ];
