@@ -1,4 +1,4 @@
-# ValorantScrim.com
+# Scrim VALORANT
 
 ## Description
 
