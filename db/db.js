@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const Post = require("./models/post");
 const Reply = require("./models/reply");
 const User = require("./models/user");
-const steam = require("../steam");
 
 const MONGO_URL = process.env.MONGO_URL;
 if (MONGO_URL === undefined) {
@@ -137,18 +136,18 @@ module.exports = {
     });
 
     let name;
-    if (steamId) {
-      // Get user's Steam name
-      const summary = await steam.getPlayerSummary(steamId);
-      name = summary["personaname"];
-    } else {
-      // Get random emoji to identify anonymous user
-      const emojiRange = [0x1f300, 0x1f52e];
-      const randomEmoji = Math.round(
-        Math.random() * (emojiRange[1] - emojiRange[0]) + emojiRange[0]
-      );
-      name = "Anonymous " + String.fromCodePoint(randomEmoji);
-    }
+    // if (steamId) {
+    //   // Get user's Steam name
+    //   const summary = await steam.getPlayerSummary(steamId);
+    //   name = summary["personaname"];
+    // } else {
+    // Get random emoji to identify anonymous user
+    const emojiRange = [0x1f300, 0x1f52e];
+    const randomEmoji = Math.round(
+      Math.random() * (emojiRange[1] - emojiRange[0]) + emojiRange[0]
+    );
+    name = "Anonymous " + String.fromCodePoint(randomEmoji);
+    // }
     user.name = name;
 
     return user.save();
