@@ -1,5 +1,9 @@
 const jwt = require("jsonwebtoken");
-const config = require("./config");
+
+const SECRET = process.env.SECRET;
+if (SECRET === undefined) {
+  throw new Error("Could not get secret from environment!");
+}
 
 module.exports = {
   /**
@@ -23,7 +27,7 @@ module.exports = {
     // Verify token and retrieve payload
     let payload;
     try {
-      payload = jwt.verify(token, config.secret);
+      payload = jwt.verify(token, SECRET);
     } catch (e) {
       if (e instanceof jwt.JsonWebTokenError) {
         return false;

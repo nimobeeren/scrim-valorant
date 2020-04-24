@@ -12,8 +12,7 @@ node_modules/
 # processed CSS
 /client/src/styles/**/*.css
 
-# authentication details
-/config.json
+# private environment variables
 .env
 
 # misc

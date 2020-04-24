@@ -4,9 +4,13 @@ const Post = require("./models/post");
 const Reply = require("./models/reply");
 const User = require("./models/user");
 const steam = require("../steam");
-const config = require("../config");
 
-mongoose.connect(config.mongoServer, {
+const MONGO_URL = process.env.MONGO_URL;
+if (MONGO_URL === undefined) {
+  throw new Error("Could not get MongoDB URL from environment!");
+}
+
+mongoose.connect(MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
