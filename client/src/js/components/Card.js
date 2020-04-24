@@ -4,9 +4,11 @@ import "./../../styles/Card.css";
 
 const Card = ({ className, title, note, subtitle, children }) => (
   <div className={className}>
-    {title && <h3>{title}</h3>}
-    {note && <span className="card__note">{note}</span>}
-    {subtitle && <div className="card__subtitle">{subtitle}</div>}
+    <div className="card__heading">
+      {title && <h3>{title}</h3>}
+      {note && <span className="card__note">{note}</span>}
+      {subtitle && <div className="card__subtitle">{subtitle}</div>}
+    </div>
     {children}
   </div>
 );

@@ -1,8 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import RegionIcon from "@material-ui/icons/Public";
+import LevelIcon from "@material-ui/icons/Star";
+import MapsIcon from "@material-ui/icons/Map";
+import AgeIcon from "@material-ui/icons/Schedule";
+import RegionCheckboxes from "../containers/RegionCheckboxes";
 import LevelCheckboxes from "../containers/LevelCheckboxes";
 import MapCheckboxes from "../containers/MapCheckboxes";
-import ServerRadioButtons from "../containers/ServerRadioButtons";
 import AgeRadioButtons from "../containers/AgeRadioButtons";
 import ChevronToggle from "./ChevronToggle";
 import Button from "./Button";
@@ -12,9 +16,9 @@ const Filters = (props) => {
   const {
     expanded,
     onExpandedToggle,
+    onRegionChange,
     onLevelChange,
     onMapChange,
-    onServerChange,
     onAgeChange,
   } = props;
 
@@ -38,19 +42,31 @@ const Filters = (props) => {
           className={"filters__fields " + (expanded ? "fields--expanded" : "")}
         >
           <fieldset>
-            <legend>Level</legend>
+            <h4>
+              <RegionIcon />
+              Region
+            </h4>
+            <RegionCheckboxes onChange={onRegionChange} />
+          </fieldset>
+          <fieldset>
+            <h4>
+              <LevelIcon />
+              Level
+            </h4>
             <LevelCheckboxes onChange={onLevelChange} />
           </fieldset>
           <fieldset>
-            <legend>Maps</legend>
+            <h4>
+              <MapsIcon />
+              Maps
+            </h4>
             <MapCheckboxes onChange={onMapChange} />
           </fieldset>
           <fieldset>
-            <legend>Server</legend>
-            <ServerRadioButtons onChange={onServerChange} />
-          </fieldset>
-          <fieldset>
-            <legend>Post age</legend>
+            <h4>
+              <AgeIcon />
+              Post age
+            </h4>
             <AgeRadioButtons onChange={onAgeChange} />
           </fieldset>
         </div>
@@ -62,9 +78,9 @@ const Filters = (props) => {
 Filters.propTypes = {
   expanded: PropTypes.bool,
   onExpandedToggle: PropTypes.func,
+  onRegionChange: PropTypes.func,
   onLevelChange: PropTypes.func,
   onMapChange: PropTypes.func,
-  onServerChange: PropTypes.func,
   onAgeChange: PropTypes.func,
 };
 

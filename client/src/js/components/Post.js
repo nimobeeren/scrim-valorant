@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import RegionIcon from "@material-ui/icons/Public";
+import LevelIcon from "@material-ui/icons/Star";
+import MapsIcon from "@material-ui/icons/Map";
 import Card from "./Card";
 import MapPool from "../containers/MapPool";
 import PostLower from "./PostLower";
@@ -13,7 +16,6 @@ class Post extends Component {
     this.getAgeString = this.getAgeString.bind(this);
     this.getLevelString = this.getLevelString.bind(this);
     this.getMapList = this.getMapList.bind(this);
-    this.getServerPrefString = this.getServerPrefString.bind(this);
   }
 
   getTeamNameString() {
@@ -28,12 +30,8 @@ class Post extends Component {
 
   getAuthor() {
     const { post } = this.props;
-
-    if (post.author && post.author.name && post.author.name.length > 0) {
-      return "By " + post.author.name;
-    } else {
-      return "By Anonymous";
-    }
+    const name = post?.body?.riotId || "Anonymous";
+    return `by ${name}`;
   }
 
   getAgeString() {
@@ -102,50 +100,36 @@ class Post extends Component {
     return post.body.maps;
   }
 
-  getServerPrefString() {
-    const { post } = this.props;
-
-    if (post.body) {
-      const server = post.body.server;
-
-      if (typeof server !== "boolean") {
-        return "On/Off";
-      } else if (server) {
-        return "On";
-      }
-    }
-    return "Off";
-  }
-
   render() {
-    const { post } = this.props,
-      teamName = this.getTeamNameString(),
-      author = this.getAuthor(),
-      age = this.getAgeString(),
-      level = this.getLevelString(),
-      maps = this.getMapList(),
-      server = this.getServerPrefString();
+    const { post } = this.props;
+    const teamName = this.getTeamNameString();
+    const author = this.getAuthor();
+    const age = this.getAgeString();
+    const region = post.body.region;
+    const level = this.getLevelString();
+    const maps = this.getMapList();
 
     return (
       <Card className="card post" title={teamName} note={author} subtitle={age}>
-        <table className="post__fields">
-          <tbody>
-            <tr>
-              <td>Level:</td>
-              <td>{level}</td>
-            </tr>
-            <tr className="maps">
-              <td>Maps:</td>
-              <td>
-                <MapPool maps={maps} />
-              </td>
-            </tr>
-            <tr>
-              <td>Server:</td>
-              <td>{server}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="post__fields">
+          <div className="post__field-label">
+            <RegionIcon />
+            Region
+          </div>
+          <div>{region}</div>
+          <div className="post__field-label">
+            <LevelIcon />
+            Level
+          </div>
+          <div>{level}</div>
+          <div className="post__field-label">
+            <MapsIcon />
+            Maps
+          </div>
+          <div>
+            <MapPool maps={maps} />
+          </div>
+        </div>
         <PostLower post={post} />
       </Card>
     );

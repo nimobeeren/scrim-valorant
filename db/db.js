@@ -29,6 +29,21 @@ module.exports = {
   getPosts: function (filters) {
     let query = {};
 
+    // Include posts that are in one of the specified regions
+    if (filters && filters.region) {
+      if (Array.isArray(filters.region)) {
+        // region can be given as an array...
+        if (filters.region.length > 0) {
+          query["body.region"] = {
+            $in: filters.region,
+          };
+        }
+      } else {
+        // ...or as a single value
+        query["body.region"] = filters.region;
+      }
+    }
+
     // Include posts that are one of the specified levels
     if (filters && typeof filters.level !== "undefined") {
       if (Array.isArray(filters.level)) {
@@ -60,17 +75,6 @@ module.exports = {
         // ...or as a single value
         query["body.maps"] = filters.maps;
       }
-    }
-
-    // Include posts that match the server preference or do not have a
-    // server preference set
-    if (filters && typeof filters.server === "boolean") {
-      query["body.server"] = {
-        $not: {
-          $exists: true,
-          $nin: [filters.server, null],
-        },
-      };
     }
 
     // Include posts that are newer than the specified age (in minutes)

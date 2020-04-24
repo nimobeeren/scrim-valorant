@@ -1,24 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Button from "./Button";
-import ServerDetails from "./ServerDetails";
 import "../../styles/Reply.css";
 
-function getPersonalizedRequest(server, isPostAuthor) {
-  if (server) {
-    return "on their server";
-  } else {
-    if (isPostAuthor) {
-      return "on your server";
-    } else {
-      return "on poster's server";
-    }
-  }
-}
-
 const Reply = ({ reply, isPostAuthor, onAccept, onDecline }) => {
-  const { map, message, ip, password } = reply.body || {};
-  const authorName = (reply.author && reply.author.name) || "Anonymous";
+  const { map, riotId, message } = reply.body || {};
 
   switch (reply.type) {
     // Request to play a map
@@ -32,17 +18,10 @@ const Reply = ({ reply, isPostAuthor, onAccept, onDecline }) => {
           key="text"
           className={"reply__text" + (declined ? " reply--declined" : "")}
         >
-          <span className="reply__author">{authorName}</span>&nbsp; wants to
-          play <span className="map">{map}</span>
-          {getPersonalizedRequest(ip, isPostAuthor)}
-          {message ? ": " : ""}
+          <span className="reply__author">{riotId}</span>
+          <span> wants to play </span>
+          <span className="map">{map}</span>
           <i>{message}</i>
-          {
-            // Show server details when applicable
-            accepted && isPostAuthor && ip && (
-              <ServerDetails key="server" ip={ip} password={password} />
-            )
-          }
         </div>,
       ];
 
@@ -92,9 +71,11 @@ const Reply = ({ reply, isPostAuthor, onAccept, onDecline }) => {
       return (
         <div key={reply._id} className="replies__reply">
           <div className="reply__text">
-            <span className="reply__author">{authorName}</span>&nbsp; has
-            accepted your request.
-            {ip && <ServerDetails ip={ip} password={password} />}
+            <span className="reply__author">{riotId}</span>
+            <span>
+              &nbsp;has accepted your request. You can now add eachother in-game
+              and create a custom game.
+            </span>
           </div>
         </div>
       );
@@ -104,8 +85,8 @@ const Reply = ({ reply, isPostAuthor, onAccept, onDecline }) => {
       return (
         <div key={reply._id} className="replies__reply">
           <div className="reply__text">
-            <span className="reply__author">{authorName}</span>&nbsp; has
-            declined your request.
+            <span className="reply__author">{riotId}</span>
+            <span>&nbsp;has declined your request.</span>
           </div>
         </div>
       );
@@ -115,8 +96,8 @@ const Reply = ({ reply, isPostAuthor, onAccept, onDecline }) => {
       return (
         <div key={reply._id} className="replies__reply">
           <div className="reply__text">
-            <span className="reply__author">{authorName}:</span>&nbsp;
-            {message}
+            <span className="reply__author">{riotId}:</span>&nbsp;
+            <span>{message}</span>
           </div>
         </div>
       );

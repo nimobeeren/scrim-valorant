@@ -8,11 +8,10 @@ const postSchema = new Schema(
     author: { type: Schema.Types.ObjectId, ref: "User" },
     body: {
       teamName: String,
+      riotId: String,
+      region: { type: String, required: true },
       level: { type: Number, required: true },
       maps: { type: [String], required: true },
-      server: Boolean,
-      ip: String,
-      password: String,
     },
     replies: [{ type: Schema.Types.ObjectId, ref: "Reply" }],
   },

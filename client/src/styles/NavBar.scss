@@ -3,7 +3,8 @@
 nav {
   width: 100%;
   height: $nav-height;
-  background: darken($primary-color, 10%);
+  background: $secondary-color;
+  box-shadow: $bs-medium;
   color: $white;
   z-index: 1;
 }
@@ -21,10 +22,18 @@ nav {
   align-items: center;
 }
 
+.nav__group > *:not(:last-child) {
+  margin-right: 8px;
+}
+
 .group--title {
   flex-grow: 1;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+.group--buttons a {
+  color: darken($accent-color, 10%);
 }
 
 nav h1 {
@@ -37,7 +46,7 @@ nav h1 {
 
 @media (min-width: $bp-small) {
   .nav__group > *:not(:last-child) {
-    margin-right: 15px;
+    margin-right: 14px;
   }
 
   nav h1 {
