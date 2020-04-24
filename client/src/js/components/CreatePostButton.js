@@ -5,7 +5,11 @@ import "../../styles/CreatePostButton.css";
 
 const CreatePostButton = ({ onClick }) => (
   <div className="create-post__wrapper wrapper--btn">
-    <Button className="btn btn--large" label="Create post" onClick={onClick} />
+    <Button
+      className="btn btn--large btn--shadow"
+      label="Create post"
+      onClick={onClick}
+    />
   </div>
 );
 

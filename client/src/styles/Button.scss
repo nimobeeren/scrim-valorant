@@ -49,6 +49,10 @@ a {
   font-size: 20px;
 }
 
+.btn--shadow {
+  box-shadow: $bs-small;
+}
+
 .btn--disabled {
   background: lighten($accent-color, 25%);
   cursor: default;
