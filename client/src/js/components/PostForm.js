@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import TeamInfoIcon from "@material-ui/icons/Group";
 import RegionIcon from "@material-ui/icons/Public";
 import LevelIcon from "@material-ui/icons/Star";
 import MapsIcon from "@material-ui/icons/Map";
@@ -20,7 +21,10 @@ const PostForm = ({
   onCancel,
 }) => (
   <form className="post-form" onSubmit={onSubmit}>
-    <h4>Team info</h4>
+    <h4>
+      <TeamInfoIcon />
+      Team info
+    </h4>
     <div className="post-form__field">
       <input
         type="text"
