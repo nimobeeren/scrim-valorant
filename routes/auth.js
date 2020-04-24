@@ -5,6 +5,11 @@ const auth = require("../auth");
 const db = require("../db/db");
 const config = require("../config");
 
+const SECRET = process.env.SECRET;
+if (SECRET === undefined) {
+  throw new Error("Could not get secret from environment!");
+}
+
 // Express router
 const router = express.Router();
 
@@ -32,7 +37,7 @@ router.post("/anonRegister", async (req, res) => {
   // Generate authorization token for this user
   let token;
   try {
-    token = jwt.sign({ id: user._id }, config.secret, { expiresIn: "24h" });
+    token = jwt.sign({ id: user._id }, SECRET, { expiresIn: "24h" });
   } catch (e) {
     res
       .status(500)
@@ -83,7 +88,7 @@ router.post("/refresh", async (req, res) => {
   // Create refreshed token for this user
   let refreshedToken;
   try {
-    refreshedToken = jwt.sign({ id: user._id }, config.secret, {
+    refreshedToken = jwt.sign({ id: user._id }, SECRET, {
       expiresIn: "24h",
     });
   } catch (e) {
@@ -170,7 +175,7 @@ router.get("/verify", (req, res) => {
       // Generate authorization token for this user
       let token;
       try {
-        token = jwt.sign({ id: user._id }, config.secret, { expiresIn: "24h" });
+        token = jwt.sign({ id: user._id }, SECRET, { expiresIn: "24h" });
       } catch (e) {
         res
           .status(500)
