@@ -8,12 +8,28 @@ body {
 }
 
 body {
-  background: $primary-color;
   min-width: 300px;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    darken($primary-color, 10),
+    darken($accent-color, 10) 180%
+  );
+}
+
 @media (min-width: $bp-large) {
-  section {
+  main {
     padding-top: $nav-height;
     padding-left: $aside-width;
   }

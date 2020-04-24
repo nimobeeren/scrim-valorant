@@ -8,6 +8,7 @@ import MapNameReducer from "./MapNameReducer";
 import PendingReplyPostsReducer from "./PendingReplyPostsReducer";
 import PopupTypeReducer from "./PopupTypeReducer";
 import PostReducer from "./PostReducer";
+import RegionReducer from "./RegionReducer";
 
 const rootReducer = combineReducers({
   activePost: ActivePostReducer,
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   pendingReplyPosts: PendingReplyPostsReducer,
   popupType: PopupTypeReducer,
   posts: PostReducer,
+  regions: RegionReducer,
 });
 
 export default rootReducer;

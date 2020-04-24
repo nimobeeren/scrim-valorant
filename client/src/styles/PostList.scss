@@ -3,12 +3,15 @@
 .post-list {
   margin: 0 15px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-flow: column nowrap;
+  align-items: center;
 }
 
 .post-list--empty {
+  margin-top: 32px;
+  margin-bottom: 128px;
   color: $white;
   font-size: 24px;
   text-align: center;
+  text-shadow: $bs-medium;
 }

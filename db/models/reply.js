@@ -17,9 +17,8 @@ const reply = new Schema(
     },
     body: {
       map: String,
+      riotId: String,
       message: String,
-      ip: String,
-      password: String,
     },
   },
   {

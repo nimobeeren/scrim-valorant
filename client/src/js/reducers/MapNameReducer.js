@@ -1,12 +1,3 @@
-const mapNameReducer = () => [
-  "cache",
-  "cbble",
-  "dust2",
-  "inferno",
-  "mirage",
-  "nuke",
-  "overpass",
-  "train",
-];
+const mapNameReducer = () => ["Bind", "Haven", "Split"];
 
 export default mapNameReducer;

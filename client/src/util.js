@@ -10,3 +10,12 @@ export function getUrlParameter(name, url) {
   if (!results[2]) return "";
   return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
+
+export function riotIdErrorHandler(event) {
+  const riotIdElement = event.currentTarget;
+  if (riotIdElement?.validity.patternMismatch) {
+    riotIdElement.setCustomValidity("Don't forget your #tagline!");
+  } else {
+    riotIdElement.setCustomValidity("");
+  }
+}

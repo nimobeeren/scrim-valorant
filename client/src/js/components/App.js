@@ -13,10 +13,11 @@ const App = () => (
     <Popup />
     <NavBar />
     <Filters />
-    <section>
+    <main>
       <CreatePostContainer />
       <PostListContainer />
-    </section>
+    </main>
+    <div className="background" />
   </div>
 );
 

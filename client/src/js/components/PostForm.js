@@ -1,71 +1,89 @@
 import React from "react";
 import PropTypes from "prop-types";
+import TeamInfoIcon from "@material-ui/icons/Group";
+import RegionIcon from "@material-ui/icons/Public";
+import LevelIcon from "@material-ui/icons/Star";
+import MapsIcon from "@material-ui/icons/Map";
+import RegionRadioButtons from "../containers/RegionRadioButtons";
 import LevelRadioButtons from "../containers/LevelRadioButtons";
 import MapCheckboxes from "../containers/MapCheckboxes";
-import ServerDetailsInput from "./ServerDetailsInput";
 import Button from "./Button";
 import SubmitButton from "./SubmitButton";
 import "../../styles/PostForm.css";
-import ServerRadioButtons from "../containers/ServerRadioButtons";
 
 const PostForm = ({
-  shouldHaveIPPW,
   onTeamNameChange,
+  onRiotIdChange,
+  onRegionChange,
   onLevelChange,
   onMapsChange,
-  onServerChange,
-  onIPChange,
-  onPasswordChange,
   onSubmit,
   onCancel,
 }) => (
   <form className="post-form" onSubmit={onSubmit}>
-    <fieldset>
-      <legend>Team Name</legend>
+    <h4>
+      <TeamInfoIcon />
+      Team info
+    </h4>
+    <div className="post-form__field">
       <input
         type="text"
-        placeholder="Anonymous"
+        placeholder="Team name (optional)"
         autoFocus
         onChange={onTeamNameChange}
       />
-    </fieldset>
-    <fieldset>
-      <legend>Level</legend>
+      <input
+        type="text"
+        id="riot-id"
+        placeholder="Riot ID#Tagline"
+        required
+        pattern=".+#.+"
+        onChange={onRiotIdChange}
+      />
+    </div>
+
+    <h4>
+      <RegionIcon />
+      Region
+    </h4>
+    <div className="post-form__field">
+      <RegionRadioButtons onChange={onRegionChange} />
+    </div>
+    <h4>
+      <LevelIcon />
+      Level
+    </h4>
+    <div className="post-form__field">
       <LevelRadioButtons onChange={onLevelChange} />
-    </fieldset>
-    <fieldset id="new-post-maps">
-      <legend>Maps</legend>
+    </div>
+    <h4>
+      <MapsIcon />
+      Maps
+    </h4>
+    <div className="post-form__field" id="new-post-maps">
       <MapCheckboxes onChange={onMapsChange} />
-    </fieldset>
-    <fieldset id="new-post-server">
-      <legend>Server</legend>
-      <ServerRadioButtons onChange={onServerChange} />
-      {shouldHaveIPPW && (
-        <ServerDetailsInput
-          onIPChange={onIPChange}
-          onPasswordChange={onPasswordChange}
-        />
-      )}
-    </fieldset>
+    </div>
     <div className="post-form__controls">
       <div className="post-form__btn-wrapper">
         <SubmitButton className="btn" label="Create" />
       </div>
       <div className="post-form__btn-wrapper">
-        <Button className="btn" label="Cancel" onClick={onCancel} />
+        <Button
+          className="btn btn--secondary"
+          label="Cancel"
+          onClick={onCancel}
+        />
       </div>
     </div>
   </form>
 );
 
 PostForm.propTypes = {
-  shouldHaveIPPW: PropTypes.bool,
   onTeamNameChange: PropTypes.func,
+  onRiotIdChange: PropTypes.func,
+  onRegionChange: PropTypes.func,
   onLevelChange: PropTypes.func,
   onMapsChange: PropTypes.func,
-  onServerChange: PropTypes.func,
-  onIPChange: PropTypes.func,
-  onPasswordChange: PropTypes.func,
   onSubmit: PropTypes.func,
   onCancel: PropTypes.func,
 };

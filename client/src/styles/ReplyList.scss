@@ -2,7 +2,7 @@
 
 .replies {
   display: none;
-  margin-top: 15px;
+  margin-top: 30px;
 }
 
 .replies--expanded {
@@ -10,6 +10,6 @@
 }
 
 .replies__reply {
-  padding: 8px;
+  padding: 16px 8px;
   border-top: $light-border;
 }

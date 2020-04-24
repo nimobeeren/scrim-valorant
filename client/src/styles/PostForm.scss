@@ -1,20 +1,46 @@
 @import "globals";
 
-.post-form fieldset {
-  margin: 10px 0;
-  border-radius: 10px;
-  border: $medium-border;
+.post-form {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-top: 16px;
+}
+
+.post-form__field {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  width: 100%;
+  padding: 8px 24px;
+  border: none;
+  &:not(:last-of-type) {
+    margin-bottom: 8px;
+  }
+  & input:not(:last-child) {
+    margin-bottom: 8px;
+  }
+}
+
+.post-form h4 {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin: 0;
+  margin-bottom: 8px;
+  color: rgba($white, 0.95);
+  text-transform: uppercase;
+  & > * {
+    margin-right: 4px;
+  }
 }
 
 .post-form input[type="text"] {
   display: block;
-  box-sizing: border-box;
-  width: 100%;
   font-size: 16px;
 }
 
 .post-form__controls {
-  margin: 0 auto;
+  margin: 16px auto 0 auto;
   text-align: center;
 }
 
@@ -37,10 +63,6 @@
 
 #new-post-maps.invalid legend::after {
   content: " (select at least one)";
-}
-
-#new-post-server.invalid legend::after {
-  content: " (enter a valid IP and password)";
 }
 
 @media (min-width: $bp-medium) {

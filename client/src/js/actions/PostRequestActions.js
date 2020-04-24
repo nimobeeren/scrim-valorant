@@ -39,10 +39,7 @@ export function acceptRequest(request, post, user, filters) {
       author: post.author._id,
       recipient: request.author._id,
       type: "accept",
-      body: {
-        ip: post.body.ip,
-        password: post.body.password,
-      },
+      body: { riotId: post.body?.riotId },
     };
     const createResponse = await fetch("/api/posts/" + post._id, {
       method: "POST",
@@ -113,7 +110,7 @@ export function declineRequest(request, post, user, filters) {
       author: post.author._id,
       recipient: request.author._id,
       type: "decline",
-      body: {},
+      body: { riotId: post.body?.riotId },
     };
     const createResponse = await fetch("/api/posts/" + post._id, {
       method: "POST",
