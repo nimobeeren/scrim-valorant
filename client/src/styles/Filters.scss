@@ -1,7 +1,7 @@
 @import "globals";
 
 .filters {
-  padding: 15px 25px;
+  padding: 16px 24px;
   background: rgba($secondary-color, 0.8);
   box-shadow: $bs-medium;
 }
@@ -18,27 +18,30 @@
 }
 
 .filters__header > *:not(:first-child) {
-  margin-left: 15px;
+  margin-left: 16px;
 }
 
 .filters h3 {
   display: inline-block;
   flex-grow: 1;
-  margin: 0 15px 0 0;
+  margin: 0 16px 0 0;
   font-size: 24px;
 }
 
 .filters__fields {
   display: none;
-  margin-bottom: 15px;
+  margin: 16px 0;
 }
 
 .fields--expanded {
-  display: block;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  grid-gap: 16px;
 }
 
 .filters fieldset {
-  margin-top: 20px;
+  margin: 0;
   padding: 15px;
   padding-top: 10px;
   background: $white;
@@ -56,6 +59,7 @@
   margin: 0;
   margin-bottom: 8px;
   color: rgba($secondary-color, 0.7);
+  font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
   & > *:first-child {
@@ -70,13 +74,12 @@
 
 // Filters are displayed horizontally and above post list
 @media (min-width: $bp-medium) {
-  .fields--expanded {
-    display: flex;
+  .filters__fields {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .filters fieldset {
-    flex-grow: 1;
-    flex-basis: 0; // needed for fields to be equal width
+  .filters h4 {
+    font-size: 16px;
   }
 }
 
@@ -95,6 +98,7 @@
   }
 
   .filters__fields {
-    display: block;
+    display: grid;
+    grid-template-columns: 1fr;
   }
 }
