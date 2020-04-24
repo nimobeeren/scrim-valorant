@@ -111,39 +111,25 @@ class Post extends Component {
 
     return (
       <Card className="card post" title={teamName} note={author} subtitle={age}>
-        <table className="post__fields">
-          <tbody>
-            <tr>
-              <td>
-                <div>
-                  <RegionIcon />
-                  Region
-                </div>
-              </td>
-              <td>{region}</td>
-            </tr>
-            <tr>
-              <td>
-                <div>
-                  <LevelIcon />
-                  Level
-                </div>
-              </td>
-              <td>{level}</td>
-            </tr>
-            <tr className="maps">
-              <td>
-                <div>
-                  <MapsIcon />
-                  Maps
-                </div>
-              </td>
-              <td>
-                <MapPool maps={maps} />
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="post__fields">
+          <div className="post__field-label">
+            <RegionIcon />
+            Region
+          </div>
+          <div>{region}</div>
+          <div className="post__field-label">
+            <LevelIcon />
+            Level
+          </div>
+          <div>{level}</div>
+          <div className="post__field-label">
+            <MapsIcon />
+            Maps
+          </div>
+          <div>
+            <MapPool maps={maps} />
+          </div>
+        </div>
         <PostLower post={post} />
       </Card>
     );
