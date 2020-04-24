@@ -4,6 +4,7 @@
   "description": "A web app to find, organize and schedule competitive Valorant matches",
   "main": "server.js",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.16.2",
     "jsonwebtoken": "^8.1.0",
     "mongodb": "^3.5.6",
