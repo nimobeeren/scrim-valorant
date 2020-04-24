@@ -20,7 +20,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm-run-all -p server client",
     "server": "node bin/www",
-    "client": "node start-client.js"
+    "client": "node start-client.js",
+    "build": "node build-client.js"
   },
   "repository": {
     "type": "git",
