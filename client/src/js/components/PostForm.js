@@ -20,8 +20,8 @@ const PostForm = ({
   onCancel,
 }) => (
   <form className="post-form" onSubmit={onSubmit}>
-    <fieldset>
-      <h4>Team info</h4>
+    <h4>Team info</h4>
+    <div className="post-form__field">
       <input
         type="text"
         placeholder="Team name (optional)"
@@ -36,28 +36,29 @@ const PostForm = ({
         pattern=".+#.+"
         onChange={onRiotIdChange}
       />
-    </fieldset>
-    <fieldset>
-      <h4>
-        <RegionIcon />
-        Region
-      </h4>
+    </div>
+
+    <h4>
+      <RegionIcon />
+      Region
+    </h4>
+    <div className="post-form__field">
       <RegionRadioButtons onChange={onRegionChange} />
-    </fieldset>
-    <fieldset>
-      <h4>
-        <LevelIcon />
-        Level
-      </h4>
+    </div>
+    <h4>
+      <LevelIcon />
+      Level
+    </h4>
+    <div className="post-form__field">
       <LevelRadioButtons onChange={onLevelChange} />
-    </fieldset>
-    <fieldset id="new-post-maps">
-      <h4>
-        <MapsIcon />
-        Maps
-      </h4>
+    </div>
+    <h4>
+      <MapsIcon />
+      Maps
+    </h4>
+    <div className="post-form__field" id="new-post-maps">
       <MapCheckboxes onChange={onMapsChange} />
-    </fieldset>
+    </div>
     <div className="post-form__controls">
       <div className="post-form__btn-wrapper">
         <SubmitButton className="btn" label="Create" />
