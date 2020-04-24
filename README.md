@@ -13,9 +13,6 @@ To run the app, you'll need to create a configuration file named `config.json` i
 
 ```
 {
-  // Used for Steam login
-  "host": "URL where your app is hosted",
-
   // Including username/pw
   "mongoServer": "URL for the MongoDB instance",
 
