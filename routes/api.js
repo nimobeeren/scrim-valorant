@@ -167,6 +167,7 @@ router
       result = await db.deletePost(req.params.postId, authorId);
     } catch (e) {
       res.status(500).send("Could not delete post: " + e.message || e);
+      return;
     }
 
     if (!result) {
