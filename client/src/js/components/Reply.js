@@ -20,7 +20,7 @@ const Reply = ({ reply, isPostAuthor, onAccept, onDecline }) => {
         >
           <span className="reply__author">{riotId}</span>
           <span> wants to play </span>
-          <span className="map">{map}</span>
+          <span className="badge">{map}</span>
           <i>{message}</i>
         </div>,
       ];
