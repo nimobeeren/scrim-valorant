@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import Map from "../components/Map";
+import Badge from "../components/Badge";
 
 const MapPool = (props) => {
   const { maps, allMaps } = props;
@@ -21,7 +21,7 @@ const MapPool = (props) => {
     sortedMaps = maps.sort();
   }
 
-  return sortedMaps.map((map, i) => <Map name={map} key={i} />);
+  return sortedMaps.map((map, i) => <Badge name={map} key={i} />);
 };
 
 function mapStateToProps(state) {
