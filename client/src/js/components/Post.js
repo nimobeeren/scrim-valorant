@@ -17,6 +17,8 @@ class Post extends Component {
     this.getAgeString = this.getAgeString.bind(this);
     this.getLevelString = this.getLevelString.bind(this);
     this.getMapList = this.getMapList.bind(this);
+    this.getIsAuthor = this.getIsAuthor.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   getTeamNameString() {
@@ -106,6 +108,11 @@ class Post extends Component {
     return post.author._id === currentUser?.id;
   }
 
+  handleDelete() {
+    const { post, filters, currentUser, deletePost } = this.props;
+    deletePost(post, filters, currentUser);
+  }
+
   render() {
     const { post } = this.props;
     const teamName = this.getTeamNameString();
@@ -122,7 +129,9 @@ class Post extends Component {
           {!!teamName && <h3>{teamName}</h3>}
           {!!author && <span className="card__note">{author}</span>}
           {!!age && <div className="card__subtitle">{age}</div>}
-          {isAuthor && <DeleteIcon className="card__icon" />}
+          {isAuthor && (
+            <DeleteIcon className="card__icon" onClick={this.handleDelete} />
+          )}
         </div>
         <div className="post__fields">
           <div className="post__field-label">
