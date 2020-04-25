@@ -1,21 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Post from "./Post";
+import PostContainer from "../containers/PostContainer";
 import "../../styles/PostList.css";
 
-const PostList = ({ posts, levelNames, currentUser }) => {
+const PostList = ({ posts }) => {
   if (Array.isArray(posts) && posts.length > 0) {
     return (
       <div className="post-list">
         {posts.map((post) => {
-          return (
-            <Post
-              key={post._id}
-              post={post}
-              levelNames={levelNames}
-              currentUser={currentUser}
-            />
-          );
+          return <PostContainer key={post._id} post={post} />;
         })}
       </div>
     );

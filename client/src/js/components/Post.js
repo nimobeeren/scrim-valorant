@@ -103,7 +103,7 @@ class Post extends Component {
 
   getIsAuthor() {
     const { post, currentUser } = this.props;
-    return post.author._id === currentUser.id;
+    return post.author._id === currentUser?.id;
   }
 
   render() {

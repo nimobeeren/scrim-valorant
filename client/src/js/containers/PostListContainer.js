@@ -13,23 +13,14 @@ class PostListContainer extends Component {
   }
 
   render() {
-    const { posts, levelNames, currentUser } = this.props;
-    return (
-      <PostList
-        posts={posts}
-        levelNames={levelNames}
-        currentUser={currentUser}
-      />
-    );
+    return <PostList posts={this.props.posts} />;
   }
 }
 
 function mapStateToProps(state) {
   return {
     posts: state.posts.items,
-    levelNames: state.levelNames,
     filters: state.filters,
-    currentUser: state.currentUser,
   };
 }
 
