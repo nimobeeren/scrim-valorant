@@ -103,6 +103,14 @@ module.exports = {
     return new Post(post).save();
   },
 
+  deletePost: async function (postId, authorId) {
+    const post = await Post.findOne(ObjectId(postId));
+    if (!post.author._id.equals(authorId)) {
+      return false;
+    }
+    return Post.deleteOne({ _id: ObjectId(postId) });
+  },
+
   sendReply: async function (reply, postId) {
     let message = new Reply(reply);
     let post = await Post.findOne(ObjectId(postId));

@@ -77,6 +77,7 @@ router
 /**
  * GET: Gets details of a specific post
  * POST: Creates a reply to a specific post
+ * DELETE: Deletes a specific post
  */
 router
   .route("/posts/:postId")
@@ -137,6 +138,43 @@ router
         return;
       }
     }
+    res.sendStatus(200);
+  })
+  .delete(async (req, res) => {
+    // Validate request
+    if (!req.body || !req.params.postId) {
+      res.sendStatus(400);
+      return;
+    }
+
+    // Verify authentication
+    let authorId;
+    try {
+      authorId = auth.verifyToken(req);
+    } catch (e) {
+      res
+        .status(500)
+        .send("Could not verify authentication token: " + e.message || e);
+      return;
+    }
+    if (!authorId) {
+      res.sendStatus(401);
+      return;
+    }
+
+    let result;
+    try {
+      result = await db.deletePost(req.params.postId, authorId);
+    } catch (e) {
+      res.status(500).send("Could not delete post: " + e.message || e);
+    }
+
+    if (!result) {
+      // User is not authorized to delete this post
+      res.sendStatus(403);
+      return;
+    }
+
     res.sendStatus(200);
   });
 
