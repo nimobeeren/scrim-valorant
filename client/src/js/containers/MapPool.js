@@ -21,7 +21,7 @@ const MapPool = (props) => {
     sortedMaps = maps.sort();
   }
 
-  return sortedMaps.map((map, i) => <Badge name={map} key={i} />);
+  return sortedMaps.map((map, i) => <Badge key={i}>{map}</Badge>);
 };
 
 function mapStateToProps(state) {

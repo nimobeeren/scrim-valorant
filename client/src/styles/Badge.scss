@@ -12,3 +12,8 @@
   text-transform: uppercase;
   font-weight: 600;
 }
+
+.badge--green {
+  background: $success-green;
+  color: rgba($white, 0.8);
+}
