@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import DeleteIcon from "@material-ui/icons/Delete";
 import RegionIcon from "@material-ui/icons/Public";
 import LevelIcon from "@material-ui/icons/Star";
 import MapsIcon from "@material-ui/icons/Map";
@@ -100,6 +101,11 @@ class Post extends Component {
     return post.body.maps;
   }
 
+  getIsAuthor() {
+    const { post } = this.props;
+    return true;
+  }
+
   render() {
     const { post } = this.props;
     const teamName = this.getTeamNameString();
@@ -108,6 +114,7 @@ class Post extends Component {
     const region = post.body.region;
     const level = this.getLevelString();
     const maps = this.getMapList();
+    const isAuthor = this.getIsAuthor();
 
     return (
       <Card className="card post">
@@ -115,6 +122,7 @@ class Post extends Component {
           {!!teamName && <h3>{teamName}</h3>}
           {!!author && <span className="card__note">{author}</span>}
           {!!age && <div className="card__subtitle">{age}</div>}
+          {isAuthor && <DeleteIcon className="card__icon" />}
         </div>
         <div className="post__fields">
           <div className="post__field-label">
