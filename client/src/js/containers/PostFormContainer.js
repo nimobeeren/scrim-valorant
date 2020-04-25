@@ -84,10 +84,10 @@ class PostFormContainer extends Component {
 
     // Validate map selection
     if (maps.length === 0) {
-      document.getElementById("new-post-maps").className = "invalid";
+      document.getElementById("maps").className = "invalid";
       fail = true;
     } else {
-      document.getElementById("new-post-maps").className = "";
+      document.getElementById("maps").className = "";
     }
 
     // Don't submit if form did not validate

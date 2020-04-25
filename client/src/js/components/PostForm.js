@@ -56,12 +56,14 @@ const PostForm = ({
     <div className="post-form__field">
       <LevelRadioButtons onChange={onLevelChange} />
     </div>
-    <h4>
-      <MapsIcon />
-      Maps
-    </h4>
-    <div className="post-form__field" id="new-post-maps">
-      <MapCheckboxes onChange={onMapsChange} />
+    <div id="maps">
+      <h4>
+        <MapsIcon />
+        Maps
+      </h4>
+      <div className="post-form__field">
+        <MapCheckboxes onChange={onMapsChange} />
+      </div>
     </div>
     <div className="post-form__controls">
       <div className="post-form__btn-wrapper">

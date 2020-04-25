@@ -54,16 +54,15 @@
 }
 
 .post-form .invalid {
-  border-color: transparentize($error-red, 0.1);
-}
-
-.post-form .invalid legend {
-  color: transparentize($error-red, 0.1);
-  background: $primary-color;
-}
-
-#new-post-maps.invalid legend::after {
-  content: " (select at least one)";
+  border-radius: $br-medium;
+  & h4 {
+    color: $error-red;
+    &::after {
+      content: "(select at least one)";
+      display: block;
+      margin-left: 4px;
+    }
+  }
 }
 
 @media (min-width: $bp-medium) {
