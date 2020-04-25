@@ -2,15 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./../../styles/Card.css";
 
-const Card = ({ className, title, note, subtitle, children }) => (
-  <div className={className}>
-    <div className="card__heading">
-      {title && <h3>{title}</h3>}
-      {note && <span className="card__note">{note}</span>}
-      {subtitle && <div className="card__subtitle">{subtitle}</div>}
-    </div>
-    {children}
-  </div>
+const Card = ({ className, children }) => (
+  <div className={className}>{children}</div>
 );
 
 Card.propTypes = {

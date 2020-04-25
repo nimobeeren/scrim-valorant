@@ -110,7 +110,12 @@ class Post extends Component {
     const maps = this.getMapList();
 
     return (
-      <Card className="card post" title={teamName} note={author} subtitle={age}>
+      <Card className="card post">
+        <div className="card__heading">
+          {!!teamName && <h3>{teamName}</h3>}
+          {!!author && <span className="card__note">{author}</span>}
+          {!!age && <div className="card__subtitle">{age}</div>}
+        </div>
         <div className="post__fields">
           <div className="post__field-label">
             <RegionIcon />

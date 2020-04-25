@@ -5,7 +5,7 @@ import "../../styles/CreatePostCard.css";
 
 const CreatePostCard = () => (
   <div className="create-post__wrapper">
-    <Card className="card card--secondary" title="Create a post">
+    <Card className="card card--secondary">
       <PostFormContainer />
     </Card>
   </div>

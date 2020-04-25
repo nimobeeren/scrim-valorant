@@ -14,7 +14,10 @@ const ReplyForm = ({
   onSubmit,
   onCancel,
 }) => (
-  <Card className="card" title={"Replying to " + post.body.teamName}>
+  <Card className="card">
+    <div className="card__heading">
+      <h3>Replying to {post.body.teamName}</h3>
+    </div>
     <form className="post-reply-form" onSubmit={onSubmit}>
       <h4>What map do you want to play?</h4>
       <DropDown
