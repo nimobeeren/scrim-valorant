@@ -102,8 +102,8 @@ class Post extends Component {
   }
 
   getIsAuthor() {
-    const { post } = this.props;
-    return true;
+    const { post, currentUser } = this.props;
+    return post.author._id === currentUser.id;
   }
 
   render() {
@@ -152,6 +152,9 @@ class Post extends Component {
 Post.propTypes = {
   post: PropTypes.object.isRequired,
   levelNames: PropTypes.array,
+  currentUser: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+  }),
 };
 Post.defaultProps = {
   levelNames: ["Unknown"],

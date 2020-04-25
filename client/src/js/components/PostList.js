@@ -3,12 +3,19 @@ import PropTypes from "prop-types";
 import Post from "./Post";
 import "../../styles/PostList.css";
 
-const PostList = ({ posts, levelNames }) => {
+const PostList = ({ posts, levelNames, currentUser }) => {
   if (Array.isArray(posts) && posts.length > 0) {
     return (
       <div className="post-list">
         {posts.map((post) => {
-          return <Post key={post._id} post={post} levelNames={levelNames} />;
+          return (
+            <Post
+              key={post._id}
+              post={post}
+              levelNames={levelNames}
+              currentUser={currentUser}
+            />
+          );
         })}
       </div>
     );
