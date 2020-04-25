@@ -5,7 +5,7 @@ import { authenticate } from "../actions/AuthenticateActions";
 import { anonymousRegister } from "../actions/RegisterActions";
 
 class LoginHelper extends Component {
-  componentWillMount() {
+  componentDidMount() {
     const { currentUser, authenticate, anonymousRegister } = this.props;
     if (currentUser) {
       authenticate(currentUser);
