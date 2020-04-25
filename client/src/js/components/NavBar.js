@@ -8,7 +8,7 @@ const NavBar = () => (
   <nav>
     <div className="nav__content">
       <div className="nav__group group--title">
-        <h1>Scrim VALORANT</h1>
+        <h1>ScrimVALORANT.com</h1>
         <WelcomeMessage />
       </div>
       <div className="nav__group group--buttons">
