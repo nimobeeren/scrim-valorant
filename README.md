@@ -1,6 +1,9 @@
-*Yes, it's old code. But it works, right?* :man_shrugging:
+⚰️ *This code was based on my very first React project, repurposed for VALORANT. It was publically available for one year since VALORANT's beta release. On April 3rd 2021, the project was retired.* ⚰️
 
 # VALORANT Scrim Finder
+
+![image](https://user-images.githubusercontent.com/12124298/113477741-5524c880-9484-11eb-9148-30046c0d4ca7.png)
+
 
 ## Description
 
