@@ -1,4 +1,4 @@
-⚰️ *This code was based on my very first React project, repurposed for VALORANT. It was publically available for one year since VALORANT's beta release. On April 3rd 2021, the project was retired.* ⚰️
+⚰️ *This code was based on my very first React project, repurposed for VALORANT. It was publically available for one year since VALORANT's beta release. On April 3rd 2021, the project was retired.*
 
 # VALORANT Scrim Finder
 
